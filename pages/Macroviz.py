@@ -14,6 +14,24 @@ csv_files = [f
 # Set page config
 st.set_page_config(page_title="Stock Greed-Fear & Volatility Analysis", layout="wide")
 
+st.markdown("""
+   <style>
+   section[data-testid="stSidebar"] {
+       background: #232946;
+       color: #fff;
+   }
+
+   /* CSS hack: Move the first sidebar block to the top */
+   section[data-testid="stSidebar"] > div:first-child {
+       order: -1;
+   }
+   </style>
+   """, unsafe_allow_html=True)
+
+with st.sidebar:
+    st.markdown("<h2 style='margin-bottom: 1.5rem;'>NAVIGATION</h2>", unsafe_allow_html=True)
+
+
 def calculate_greed_fear_index(df):
     """
     Calculate a greed-fear index based on multiple technical indicators

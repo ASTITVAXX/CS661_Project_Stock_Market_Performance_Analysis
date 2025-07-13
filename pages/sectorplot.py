@@ -30,6 +30,18 @@ st.markdown("""
         text-align: center;
         margin-bottom: 2rem;
     }
+
+    section[data-testid="stSidebar"] {
+      background: #232946;
+      color: #fff;
+      
+    }
+
+    /* CSS hack: Move the first sidebar block to the top */
+    section[data-testid="stSidebar"] > div:first-child {
+        order: -1;
+    }
+    
     .section-header {
         font-size: 1.8rem;
         font-weight: bold;
@@ -68,6 +80,10 @@ st.markdown("""
     }
 </style>
 """, unsafe_allow_html=True)
+
+with st.sidebar:
+    st.markdown("<h2 style='margin-bottom: 1.5rem;'>NAVIGATION</h2>", unsafe_allow_html=True)
+
 
 @st.cache_data
 def load_data():
