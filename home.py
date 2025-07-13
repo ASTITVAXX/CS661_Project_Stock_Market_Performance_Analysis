@@ -60,6 +60,11 @@ st.markdown(f"""
         color: white;
         margin-bottom: 3rem;
         box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        
     }}
     
     .hero-title {{  
@@ -224,7 +229,7 @@ st.markdown("""
 <div class="hero-section">
     <h1 class="hero-title"> NASDAQ Financial Analytics Dashboard</h1>
     <p class="hero-subtitle">Advanced Market Intelligence </p>
-    <p class="hero-description", style="margin-left: 30px;">
+    <p class="hero-description", style="text-align: center;">
         A comprehensive financial data visualization suite developed for CS661 at IIT Kanpur, 
         featuring cutting-edge algorithms, multi-dimensional analysis, and interactive insights 
         into America's financial markets.
