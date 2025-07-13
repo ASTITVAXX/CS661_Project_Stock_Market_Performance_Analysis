@@ -1,6 +1,7 @@
 import streamlit as st
 import os
-
+import base64
+from pathlib import Path
 
 
 
@@ -18,8 +19,11 @@ st.set_page_config(
     layout="wide",
     initial_sidebar_state="expanded"
 )
+current_dir = Path(__file__).parent
+img_path = current_dir / "data" / "stock_bg.jpg"
+with open(img_path, "rb") as f:
+    img_data = base64.b64encode(f.read()).decode()
 
-background_image_path = "CS661_Project_Stock_Market_Performance_Analysis/data/stock_bg.jpg"
 
 # Simplified Custom CSS for better compatibility
 st.markdown(f"""
@@ -31,8 +35,24 @@ st.markdown(f"""
     }}
 
     .stApp {{
-        background: url('{background_image_path}') no-repeat center center fixed;
+        background-image: url("data:image/png;base64,{img_data}");
         background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+    }}
+
+    .stApp::before {{
+    content: "";
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(20, 30, 50, 0.65);  /* Adjust the last value (0.65) for darkness */
+    z-index: 0;
+    pointer-events: none;
+    }}
+    
+    .stApp > div {{
+        position: relative;
+        z-index: 1;
     }}
 
     section[data-testid="stSidebar"] {{
